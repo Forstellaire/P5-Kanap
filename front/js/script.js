@@ -2,7 +2,8 @@
 // Fonction pour aller chercher l'api
 const fetchProducts = async() => { 
     await fetch('http://localhost:3000/api/products') // on va chercher l'API avec la methode fetch 
-    .then(res => res.json().then(JSON => products = JSON)); // on récupere les informations de l'api qu'on va mettre au format json.  
+    .then(res => res.json()
+    .then(JSON => products = JSON)); // on récupere les informations de l'api qu'on va mettre au format json.  
     console.log(products);
 };
 

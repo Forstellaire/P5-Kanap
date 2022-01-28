@@ -10,7 +10,8 @@ let colorsArray = document.getElementById("colors"); // on récupére l'id descr
 // fonction pour récuperer les données de l'api avec l'id du produit
 const getProduct = async() => {
     await fetch("http://localhost:3000/api/products/" + idProduct) // on va chercher l'API avec la methode fetch et on ajoute notre variable qui contient l'id
-    .then((res) => res.json().then(json => product = json));      
+    .then((res) => res.json()
+    .then(json => product = json));      
 };
 
 getProduct(); // On appelle la fonction précédente pour récupérer les données de l'API
@@ -51,7 +52,7 @@ showProduct();
 const addBasket = () => {
   let button     = document.getElementById("addToCart"); // on stock l'id dans une variable
   const quantity = document.getElementById("quantity"); // on stock l'id dans une variable
-  let prodArray  = JSON.parse(localStorage.getItem("prod"));
+  let prodArray  = JSON.parse(localStorage.getItem("prod")); // on utilise la méthode .parse pour les convertir en JSON 
   console.log(product);
 
   button.addEventListener("click", () => { // on ecoute la variable button au click, le code se déclenche au click

@@ -1,7 +1,8 @@
 // fonction pour récupérer les données de l'api
 const fetchProducts = async() => { 
     await fetch('http://localhost:3000/api/products') // on va chercher l'API avec la methode fetch 
-    .then(res => res.json().then(json => products = json)); // on fait une promesse en renvoyant la réponse au format JSON. // on définit un paramètre pour products en réutilisant .then 
+    .then(res => res.json()
+    .then(json => products = json)); // on fait une promesse en renvoyant la réponse au format JSON. // on définit un paramètre pour products en réutilisant .then 
     
 
 let addProduct = JSON.parse(localStorage.getItem("prod")); // on recupere ce qu'il y a dans le local storage
@@ -111,8 +112,7 @@ let pDeleteItem = document.createElement("p");
     totalQuantity = 0; // on fixe la quantité à 0 de base
 
     for (let j = 0; j < productQuantity; ++j) {
-        totalQuantity += elQuantity[j].valueAsNumber; // on va chercher la quantité dans le tableau avec une boucle for 
-        
+        totalQuantity += elQuantity[j].valueAsNumber; // on va chercher la quantité dans le tableau avec une boucle for    
     }
 
     let valueQuantity = document.getElementById('totalQuantity'); // on cible l'id totalQuantity
@@ -120,9 +120,6 @@ let pDeleteItem = document.createElement("p");
 
 // affichage du prix total
     totalPrice = 0; // on fixe la prix total à 0 de base
-    for (let k = 0; k < productQuantity; ++k) {
-    totalPrice += (elQuantity[k].valueAsNumber * products[k].price); // on multiplie la quantité par le prix  (prix récupéré de l'api)
-    }
     let productTotalPrice = document.getElementById('totalPrice');
     productTotalPrice.innerHTML = totalPrice;
     };
@@ -188,11 +185,11 @@ const contact = {
 }
 
 let contactRegex= [
-firstName.reportValidity(),
-lastName.reportValidity(),
-address.reportValidity(),
-city.reportValidity(),
-email.reportValidity()
+    firstName.reportValidity(),
+    lastName.reportValidity(),
+    address.reportValidity(),
+    city.reportValidity(),
+    email.reportValidity()
 ]
 
 let products = [];
@@ -227,7 +224,6 @@ if (contactRegexEnd == true) {
       });
 }  
 });
-
 };
 };
 fetchProducts();
